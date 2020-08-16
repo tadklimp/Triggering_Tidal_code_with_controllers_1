@@ -1,6 +1,6 @@
 # Triggering TidalCycles code with a Monome Grid (or any MIDI device) - Part 1
 
-Below lies my current (March 2019) über-hack to trigger code-blocks in Tidal with a controller. Not for the faint-hearted, and could definitely use some KISS help, but it is a ... workaround :-D . I hope it can be useful to your practice and please feel free to suggest, correct and comment!
+Below lies my current (March 2019) über-hack to trigger code-blocks in Tidal with a controller. Not for the faint-hearted, and could definitely use some KISS help, but it is a ... workaround :-D . An early video performance with the following tools can be seen here: [link][]. I hope it can be useful to your practice and please feel free to suggest, correct and comment!
 
 # Overview
 
@@ -331,6 +331,7 @@ In the next tutorial we'll see how we can trigger these patterns.
 
 Enjoy and let me know in case you have any trouble figuring all this out.
 
+[link]:https://www.youtube.com/watch?v=Gv_llkFqcR4
 [elliLive]:https://github.com/tadklimp/ellilive_old
 [grr]:https://github.com/antonhornquist/Grrr-sc
 [tidal]:https://tidalcycles.org
