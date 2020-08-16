@@ -1,4 +1,4 @@
-# Triggering TidalCycles code with a Monome Grid (or any MIDI device)
+# Triggering TidalCycles code with a Monome Grid (or any MIDI device) - Part 1
 
 Below lies my current (March 2019) über-hack to trigger code-blocks in Tidal with a controller. Not for the faint-hearted, and could definitely use some KISS help, but it is a ... workaround :-D . I hope it can be useful to your practice and please feel free to suggest, correct and comment!
 
@@ -150,10 +150,6 @@ In case you are using a different shell than `bash` - I use `zsh`- you will have
 "source ~/.zshrc;  tmux send-keys -t tidal.0 \"i isn't that great? \" Escape Enter".unixCmd;
 ```
 
-### Preparing Vim
-
-Next we will need to setup Vim so 
-
 
 # MIDI
 
@@ -202,7 +198,7 @@ Let's say that we'll map 8 of our controller buttons to the first 8 patterns. We
 * store the patterns
 * recall the patterns
 
-In order to do that we will use an extra button as a `Shift` key. Then we could hold `Shift + Button` to store a pattern in a button and then simply press that  button to recall/evaluate the pattern. This allows us to re-assign blocks of code on the fly.
+In order to do that we will use an extra button in the controller as a `Shift` key. That way we could hold `Shift + Button` to store a pattern in a button and then simply press that  button to recall/evaluate the pattern. This allows us to re-assign blocks of code on the fly.
 
 #### MIDI Functions
 
@@ -274,9 +270,9 @@ $ s "g:5" # cut (-1) # speed 0.8
 
 ```
 
-Vim's _Normal_ mode equips us with a ton of key-commands to navigate our document. We are going to use some of these in order to accomplish our goal. The only prerequisite here is that our cursor has to lie somewhere within the block we want to tag.  
+Vim's _Normal_ mode equips us with a ton of key-commands to navigate our document. We are going to use some of these in order to accomplish our goal. The only prerequisite here is: __our cursor has to lie somewhere within the block we want to tag__.  
 
-When in _Normal_ mode, the left curly brace `{` places our cursor at the top of our paragraph (in the empty line) and the right parenthesis `)` moves it forward at the first line of our code-block. Then, capital o `O` places our cursor just above it and switches editing into _Insert_ mode and we are ready to type our `tag.` In a Terminal we could accomplish all this by typing: 
+When in _Normal_ mode, the left curly bracket `{` places our cursor at the top of our paragraph (in the empty line) and the right parenthesis `)` moves it forward at the first line of our code-block. Then, capital o `O` places our cursor just above it and switches editing into _Insert_ mode and we are ready to type our `tag.` In a Terminal we could accomplish all this by typing: 
 
 ```bash
 
@@ -308,7 +304,7 @@ MIDIdef.cc(\shiftMomentary, {~shift = true }, 64, 1, argTemplate:{ |val| if(val=
 	var patNum = ~renum.(cc);
 	MIDIdef.cc( ("pat_"++patNum).asSymbol,{
 		if (~shift == true){
-			(~tmux_path++("\"{) O-- "++patnum++" \" Escape Enter ")).unixCmd; // set pattern's name in TidalCycles 
+			(~tmux_path++("\"{) O -- pat"++patNum++" \" Escape Enter ")).unixCmd; // set pattern's name in TidalCycles 
 		}{
 			// here we will write code that triggers our pattern
 		}
@@ -321,10 +317,19 @@ MIDIdef.cc(\shiftMomentary, {~shift = true }, 64, 1, argTemplate:{ |val| if(val=
 ``` 
 
 Note a few things:  
-* We have now placed our global `tmux` string in the `~tmux_path` variable. Pay attention to any blank spaces (such as the one after the word `Escape`) as we will be concantnating strings and spaces will be important.
-* Our 8-buttons `MIDIdef.cc()` main function now uses an `if` statement to track whether the `shift` button is pressed, hence it will swith between storing and triggering a pattern.
-* asda
+* We have now placed our global `tmux` string in the `~tmux_path` variable. Pay attention to any blank spaces (such as the one after the word `Escape`) as we will be concatenating strings and spaces will be important.
+* Our 8-buttons `MIDIdef.cc()` main function now uses an `if` statement to track whether the `shift` button is pressed, hence it will switch between storing and triggering a pattern.
+* We use the variable `patNum` to store the resultant number from the CC-remapping function and then add it to the `tmux` string, e.g. when button nr.7 is pressed the message will look like this: 
+```bash
 
+$ tmux send-keys -t tidal.0 Escape "{) O -- pat7" Escape Enter
+```
+
+
+This new numeric tag `pat7` will be placed on top of our selected code-block and at the same time will be assigned to the 7th button of our controller.
+In the next tutorial we'll see how we can trigger these patterns.
+
+Enjoy and let me know in case you have any trouble figuring all this out.
 
 [elliLive]:https://github.com/tadklimp/ellilive_old
 [grr]:https://github.com/antonhornquist/Grrr-sc
