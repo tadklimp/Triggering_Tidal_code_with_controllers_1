@@ -1,6 +1,6 @@
 # Triggering TidalCycles code with a Monome Grid (or any MIDI device) - Part 1
 
-Below lies my current (March 2019) über-hack to trigger code-blocks in Tidal with a controller. Not for the faint-hearted, and could definitely use some KISS help, but it is a ... workaround :-D . An early video performance with the following tools can be seen here: [link][]. I hope it can be useful to your practice and please feel free to suggest, correct and comment!
+Below lies my current (March 2019) über-hack to trigger code-blocks in Tidal with a controller. Not for the faint-hearted, and could definitely use some KISS help, but it is a ... workaround :-D . I hope it can be useful to your practice and please feel free to suggest, correct and comment!
 
 # Overview
 
@@ -18,7 +18,7 @@ Below lies my current (March 2019) über-hack to trigger code-blocks in Tidal wi
 
 # Background  
 
-In my live performance I use a Monome Grid 128 and [SuperCollider][sc] to store & trigger chuncks of code that I either live-code, or have already prepared. This is happening through a set of custom [Classes][elliLive] in SuperCollider that make use of the excellent [Grrr][grr] toolkit. Lately, I started using [TidalCycles][tidal] and I enjoy it so much that I want to integrate it in this setup.
+In my live performance I use a Monome Grid 128 and [SuperCollider][sc] to store & trigger chuncks of code that I either live-code, or have already prepared. This is happening through a set of custom [Classes][elliLive] in SuperCollider that make use of the excellent [Grrr][grr] toolkit. An early video performance with those tools can be seen here: [link][link]. Lately, I started using [TidalCycles][tidal] and I enjoy it so much that I want to integrate it in this setup.
 Since I'm a total noob when it comes to Haskell I thought that the simplest way to accomplish that would be :  
 >  press a button and the cursor is (a) placed on a specific line and (b) evaluates the block of code that lies there.
 
