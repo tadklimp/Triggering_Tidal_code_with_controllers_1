@@ -18,7 +18,7 @@ Below lies my current (March 2019) über-hack to trigger code-blocks in Tidal wi
 
 # Background  
 
-In my live performance I use a Monome Grid 128 and [SuperCollider][sc] to store & trigger chuncks of code that I either live-code, or have already prepared. This is happening through a set of custom Classes in SuperCollider that make use of the excellent [Grrr][grr] toolkit. Lately, I started using [TidalCycles][tidal] and I enjoy it so much that I want to integrate it in this setup.
+In my live performance I use a Monome Grid 128 and [SuperCollider][sc] to store & trigger chuncks of code that I either live-code, or have already prepared. This is happening through a set of custom [Classes][elliLive] in SuperCollider that make use of the excellent [Grrr][grr] toolkit. Lately, I started using [TidalCycles][tidal] and I enjoy it so much that I want to integrate it in this setup.
 Since I'm a total noob when it comes to Haskell I thought that the simplest way to accomplish that would be :  
 >  press a button and the cursor is (a) placed on a specific line and (b) evaluates the block of code that lies there.
 
@@ -326,7 +326,7 @@ Note a few things:
 * asda
 
 
-
+[elliLive]:https://github.com/tadklimp/ellilive_old
 [grr]:https://github.com/antonhornquist/Grrr-sc
 [tidal]:https://tidalcycles.org
 [sc]:https://supercollider.github.io/
