@@ -336,7 +336,7 @@ Note a few things:
 $ tmux send-keys -t tidal.0 Escape "{) O -- pat3" Escape Enter
 ```
 
-This new numeric tag `pat3` will be placed on top of our selected code-block and at the same time will be assigned to the 7th button of our controller.
+This new numeric tag `pat3` will be placed on top of our selected code-block and at the same time will be assigned to the 3d button of our controller.
 In the next tutorial we'll see how we can trigger these patterns.
 
 Enjoy and let me know in case you have any trouble figuring all this out.
