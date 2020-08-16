@@ -109,7 +109,7 @@ $ tidalvim example.tidal
 a new tmux session starts (which is named `tidal`) with 2 panes stacked horizontally, above lies our Tidal code and below the Tidal interpreter, as you can see here (note the `panes` numbers, 0 and 1):
 
 
-![](/a/raw/b/tmux_panes.png "The tidal tmux session showing the numbered panes")
+![](/pics/tmux_panes.png "The tidal tmux session showing the numbered panes")
 
 
 Why are all these important?  
