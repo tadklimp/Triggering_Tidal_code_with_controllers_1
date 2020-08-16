@@ -270,6 +270,17 @@ $ s "g:5" # cut (-1) # speed 0.8
 
 ```
 
+After our action is performed, it will look like this:
+
+```haskell
+-- pat3
+d1 $ every 3 (within (0.25, 0.75) (striate 2). (|* speed 1.5))
+$ every 4 (# n "3 7 9")
+$ s "g:5" # cut (-1) # speed 0.8
+
+```
+
+
 Vim's _Normal_ mode equips us with a ton of key-commands to navigate our document. We are going to use some of these in order to accomplish our goal. The only prerequisite here is: __our cursor has to lie somewhere within the block we want to tag__.  
 
 When in _Normal_ mode, the left curly bracket `{` places our cursor at the top of our paragraph (in the empty line) and the right parenthesis `)` moves it forward at the first line of our code-block. Then, capital o `O` places our cursor just above it and switches editing into _Insert_ mode and we are ready to type our `tag.` In a Terminal we could accomplish all this by typing: 
@@ -319,14 +330,13 @@ MIDIdef.cc(\shiftMomentary, {~shift = true }, 64, 1, argTemplate:{ |val| if(val=
 Note a few things:  
 * We have now placed our global `tmux` string in the `~tmux_path` variable. Pay attention to any blank spaces (such as the one after the word `Escape`) as we will be concatenating strings and spaces will be important.
 * Our 8-buttons `MIDIdef.cc()` main function now uses an `if` statement to track whether the `shift` button is pressed, hence it will switch between storing and triggering a pattern.
-* We use the variable `patNum` to store the resultant number from the CC-remapping function and then add it to the `tmux` string, e.g. when button nr.7 is pressed the message will look like this: 
+* We use the variable `patNum` to store the resultant number from the CC-remapping function and then add it to the `tmux` string, e.g. when button nr.3 is pressed the message will look like this: 
 ```bash
 
-$ tmux send-keys -t tidal.0 Escape "{) O -- pat7" Escape Enter
+$ tmux send-keys -t tidal.0 Escape "{) O -- pat3" Escape Enter
 ```
 
-
-This new numeric tag `pat7` will be placed on top of our selected code-block and at the same time will be assigned to the 7th button of our controller.
+This new numeric tag `pat3` will be placed on top of our selected code-block and at the same time will be assigned to the 7th button of our controller.
 In the next tutorial we'll see how we can trigger these patterns.
 
 Enjoy and let me know in case you have any trouble figuring all this out.
